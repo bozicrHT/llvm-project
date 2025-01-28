@@ -343,6 +343,12 @@
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/SandboxVectorizer/SandboxVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
+
+#include "llvm/Transforms/Utils/MyFirstPass.h"
+#include "llvm/Transforms/Utils/DebugPass.h"
+#include "llvm/Transforms/Utils/DeleteDebugInfoPass.h"
+
+
 #include <optional>
 
 using namespace llvm;

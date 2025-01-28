@@ -498,6 +498,11 @@ FUNCTION_PASS("view-dom-only", DomOnlyViewer())
 FUNCTION_PASS("view-post-dom", PostDomViewer())
 FUNCTION_PASS("view-post-dom-only", PostDomOnlyViewer())
 FUNCTION_PASS("wasm-eh-prepare", WasmEHPreparePass())
+
+FUNCTION_PASS("myfirstpass", MyFirstPass())
+FUNCTION_PASS("mydebug-pass", DebugPass())
+FUNCTION_PASS("delete-dbg-info-pass", DeleteDebugInfoPass())
+
 #undef FUNCTION_PASS
 
 #ifndef FUNCTION_PASS_WITH_PARAMS
