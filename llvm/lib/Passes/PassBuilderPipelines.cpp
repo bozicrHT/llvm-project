@@ -146,6 +146,8 @@
 #include "llvm/Transforms/Vectorize/SLPVectorizer.h"
 #include "llvm/Transforms/Vectorize/VectorCombine.h"
 
+#include "llvm/Transforms/Utils/DeleteDebugInfoPass.h"
+
 using namespace llvm;
 
 static cl::opt<InliningAdvisorMode> UseInlineAdvisor(
@@ -1547,6 +1549,10 @@ PassBuilder::buildModuleOptimizationPipeline(OptimizationLevel Level,
   // passes to avoid re-sinking, but before SimplifyCFG because it can allow
   // flattening of blocks.
   OptimizePM.addPass(DivRemPairsPass());
+
+  if (Level == OptimizationLevel::O2) {
+    OptimizePM.addPass(DeleteDebugInfoPass());
+  }
 
   // Try to annotate calls that were created during optimization.
   OptimizePM.addPass(TailCallElimPass());
